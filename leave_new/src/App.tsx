@@ -1,35 +1,68 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import Logo from "./assets/bottle.png";
+import Google from "./assets/google.png";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="main_Container">
+        <div className="Left_half">
+          <div className="Inner_left">
+            <img className="image_container" src={Logo} alt="logo" />
+            <div className="out_cont">
+              <button className="btn_container">
+                <img className="google_container" src={Google} alt="google" />
+                Log in with Google
+              </button>
+            </div>
+            <div className="out_cont">
+              <p className="txt_cont"> OR LOGIN WITH EMAIL</p>
+            </div>
+            <div className="out_cont">
+              <input
+                className="input_container"
+                type="email"
+                placeholder="Your Email"
+              />
+            </div>
+            <div className="out_cont">
+              <input
+                className="input_container"
+                type="password"
+                placeholder="Your Password"
+              />
+            </div>
+            <div className="out_cont check_container">
+              <div className="check_input">
+                <input
+                  className="check_design"
+                  id="check"
+                  name="check"
+                  value="ckecked"
+                  type="checkbox"
+                />
+                <p className="ckeck_txt">Keep me Logged in</p>
+              </div>
+              <div>
+                <a href="/" target="_pass">
+                  Forget password
+                </a>
+              </div>
+            </div>
+            <div className="out_cont">
+              <button className="btn_txt">Log In</button>
+            </div>
+            <div className="out_cont">
+              <p className="txt_cont">
+                Don't have an account yet? <a href="/">Sign up</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="Right_half"></div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
