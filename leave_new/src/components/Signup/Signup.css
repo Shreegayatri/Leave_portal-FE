@@ -1,10 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
 
-button,
-body {
-  font-family: "Raleway", sans-serif;
-}
-
 .main_Container {
   width: 100%;
   display: flex;
@@ -12,7 +7,7 @@ body {
   justify-content: center;
   align-items: center;
 }
-.Left_half {
+.Left_halfsignup {
   width: 50%;
   height: 98vh;
   display: flex;
@@ -21,7 +16,7 @@ body {
 }
 
 @media (max-width: 1000px) {
-  .Right_half {
+  .Right_halfsignup {
     display: none !important;
   }
   .main_Container {
@@ -37,22 +32,21 @@ body {
     margin: auto;
   }
 }
+
 @media (max-width: 480px) {
-  .or_cont {
+  .input_container {
     max-width: 250px;
   }
+  .btn_txt {
+    max-width: 273px;
+  }
+  .logo_response {
+    max-width: 200px;
+  }
+  .Login_container {
+    font-size: 35px !important;
+  }
 }
-
-.or_cont {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.extra_design {
-  justify-content: center;
-  align-items: center;
-}
-
 .Login_container {
   margin-bottom: 30px;
   font-size: 40px;
@@ -61,15 +55,20 @@ body {
 .add_cont {
   font-size: 16px;
 }
+.image_logo {
+  margin-left: -32px;
+  margin-bottom: 30px;
+}
 .image_container {
-  width: 358px;
+  width: 340px;
   height: 85px;
 }
-.Inner_left {
+.Inner_leftsignup {
   display: flex;
   justify-content: center;
   flex-direction: column;
   padding: 20px;
+
   margin: auto;
 }
 button,
@@ -79,17 +78,8 @@ select {
   border: none;
   background-color: transparent;
 }
-.btn_container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid gray;
-  padding: 5px;
-  border-radius: 6px;
-  background: #fff;
-}
+
 .logn_cont {
-  /* padding:10px; */
   font-weight: 400;
   font-size: 16px;
   font-style: normal;
@@ -102,33 +92,33 @@ select {
 }
 .label_cont {
   margin-bottom: 20px;
+  /* font-weight: 600; */
+  color: black;
+  font-size: 17px;
 }
-.txt_cont {
+::placeholder {
   font-size: 12px;
-  color: gray;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
 }
+
 .pass_cont {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-.forget_pass {
-  font-size: 15px;
-  color: #111a39;
-  text-decoration: none;
-}
+
 .out_cont {
   margin-top: 20px;
-  /* margin-top: 20px; */
   display: flex;
   flex-direction: column;
 }
 .input_container {
+  width: 400px;
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #ddd;
-  /* box-shadow: 0 4px 2px -1px rgba(163, 161, 161, 0.2); */
+  border: 1px solid gray;
 }
 .check_container {
   display: flex;
@@ -140,23 +130,25 @@ select {
   width: 15px;
   height: 15px;
 }
-.check_input {
+.check_inputsignup {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 .btn_txt {
   font-size: 20px;
   color: white;
+  width: 422px;
   border-color: #2f80ed;
   background-color: #111a39;
   padding: 10px;
   border-radius: 6px;
-  margin-top: 20px;
-  /* font-weight: 600; */
 }
-
-.Right_half {
+.ckeck_txt {
+  margin-left: 10px;
+  font-size: 16px;
+  /* color: gray; */
+}
+.Right_halfsignup {
   width: 50%;
   height: 100vh;
   display: flex;
@@ -166,8 +158,9 @@ select {
   flex-shrink: 0;
   background-size: cover;
 }
-.Inner_right {
+.Inner_rightsignup {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: auto;
@@ -179,9 +172,28 @@ h1 {
   margin: 0;
   padding: 0;
 }
-
-.pass_icon_login {
+.error_msg {
+  color: red;
+  font-size: 12px;
+  margin-top: 10px;
+  /* font-weight: 600; */
+}
+.sucess_msg {
+  color: green;
+  font-size: 15px;
+}
+.pass_icon_cont {
   position: relative;
-  right: 7px;
-  bottom: 3px;
+  right: 0px;
+  bottom: 15px;
+}
+.eye_img_cont{
+  position: absolute;
+  width:20px;
+  height:20px;
+  right: 20px;
+  bottom: -7px;
+}
+.password_cont{
+  position:relative;
 }

@@ -1,13 +1,16 @@
 import { useState } from "react";
-import Logo from "../assets/bottle.png";
-// import axios from "axios";
+import Logo from "../../assets/bottle.png";
+import eyeOn from "../../assets/visibilityEye.png";
+import eyeOff from "../../assets/invisible.png";
+import "../Signup/Signup.css";
 
 function Signup() {
   const [empid, setEmpId] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordType, setPasswordType] = useState("password");
   const [email, setEmail] = useState("");
-  const [roles, setRoles] = useState("");
+  // const [roles, setRoles] = useState("");
   const [checked, setChecked] = useState(false);
   const [errors, setErrors] = useState({});
 
@@ -21,27 +24,48 @@ function Signup() {
   };
 
   const validateForm = () => {
+    const minLength = 10;
+    const Uppercase = /[A-Z]/.test(password);
+    const Lowercase = /[a-z]/.test(password);
+    const hasDigit = /\d/.test(password);
+    const hasSpace = /\s/.test(password);
+    const hascharacters = /^[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/;
+    const hasFormat = /^[A-Z]+[0-9]+$/;
+    const emailFormat = /^[a-zA-Z0-9._%+-]+@(gmail\.com|\.net)$/;
     let errors = {};
 
     if (!empid) {
       errors.empid = "Employee id is required";
-    } else if (empid.length > 5) {
+    } else if (!hasFormat.test(empid)) {
+      errors.empid = "Only accept this format Ex: MT121";
+    } else if (empid.length > 5)
       errors.empid = "Employee id should be 5 letters";
-    }
+
     if (!name) {
       errors.name = "Name is required";
     }
     if (!password) {
       errors.password = "Password is required";
-    } else if (!/[A-Z][a-z]\d/.test(password)) {
-      errors.password = "Password must have 1 Caps,1 small, 1 digit";
-    } else if (password.length > 8) {
-      errors.password = "Password must be 8 letters";
+    } else if (password.length < minLength) {
+      errors.password = "Password must be at least 10 characters long";
+    } else if (!Uppercase) {
+      errors.password = "Password must be contain atleast 1 Uppercase letters";
+    } else if (!Lowercase) {
+      errors.password = "Password must be contain atleast 1 Lowercase letters";
+    } else if (hasSpace) {
+      errors.password = "Password doesn't not accept spacing";
+    } else if (!hasDigit) {
+      errors.password = "Password must be contain atleast 1 Digit";
+    } else if (hascharacters.test(password)) {
+      errors.password = "Password must be contain atleast 1 Special characters";
     }
+
     if (!email) {
       errors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       errors.email = "Email is invalid";
+    } else if (!emailFormat.test(email)) {
+      errors.email = "Email only accept .gmail and .net format";
     }
 
     if (!checked) {
@@ -73,7 +97,7 @@ function Signup() {
       setName("");
       setEmail("");
       setPassword("");
-      setRoles("");
+      // setRoles("");
       setChecked(false);
       setErrors({});
       alert("Form submitted successfully");
@@ -82,12 +106,27 @@ function Signup() {
     }
   };
 
+  const togglePassword = () => {
+    if (passwordType === "password") {
+      setPasswordType("text");
+      return;
+    }
+    setPasswordType("password");
+  };
+
   return (
     <div className="main_Container">
-      <div className="Right_half">
-        <div className="Inner_right">
-          <img className="image_container" src={Logo} alt="logo" />
+      <div className="Right_halfsignup">
+        <div className="Inner_rightsignup">
+          <img className="image_container image_logo" src={Logo} alt="logo" />
+        </div>
+      </div>
+      <div className="Left_halfsignup">
+        <div className="Inner_leftsignup">
+          <div className="logo_response"></div>
+          <p className="Login_container">SignUp</p>
           <div className="out_cont">
+            <label className="label_cont">Employee Id</label>
             <input
               className="input_container"
               type="text"
@@ -101,6 +140,7 @@ function Signup() {
             {errors.empid ? <p className="error_msg">{errors.empid}</p> : ""}
           </div>
           <div className="out_cont">
+            <label className="label_cont">User Name</label>
             <input
               className="input_container"
               type="text"
@@ -114,6 +154,7 @@ function Signup() {
             {errors.name ? <p className="error_msg">{errors.name}</p> : ""}
           </div>
           <div className="out_cont">
+            <label className="label_cont">Email-Id</label>
             <input
               className="input_container"
               type="email"
@@ -127,9 +168,10 @@ function Signup() {
             {errors.email ? <p className="error_msg">{errors.email}</p> : ""}
           </div>
           <div className="out_cont">
+            <label className="label_cont">Password</label>
             <input
               className="input_container"
-              type="password"
+              type={passwordType}
               name="password"
               placeholder="Password"
               value={password}
@@ -137,35 +179,29 @@ function Signup() {
                 setPassword(e.target.value);
               }}
             />
+            <button className="pass_icon_cont" onClick={togglePassword}>
+              {passwordType == "password" ? (
+                <img className="eye_img_cont" src={eyeOff} alt="eye" />
+              ) : (
+                <img className="eye_img_cont" src={eyeOn} alt="eye" />
+              )}
+            </button>
             {errors.password ? (
               <p className="error_msg">{errors.password}</p>
             ) : (
               ""
             )}
           </div>
+
           <div className="out_cont">
-            <select
-              value={roles}
-              onChange={(e) => {
-                setRoles(e.target.value);
-              }}
-              className="input_container select_contain"
-            >
-              <option>Admin</option>
-              <option>Employees</option>
-              <option>Managers</option>
-            </select>
-            {/* {errors.roles ? <p className="error_msg">{errors.roles}</p> : ""} */}
-          </div>
-          <div className="out_cont check_container">
-            <div className="check_input">
+            <div className="check_inputsignup">
               <input
                 className="check_design"
                 type="checkbox"
                 value={checked}
                 onChange={handleCheck}
               />
-              <p className="ckeck_txt">Accept all the field are correct</p>
+              <p className="ckeck_txt">I Agree to the above Information.</p>
             </div>
           </div>
           {errors.checked ? <p className="error_msg">{errors.checked}</p> : ""}
