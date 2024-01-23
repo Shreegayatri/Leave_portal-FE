@@ -10,7 +10,6 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [passwordType, setPasswordType] = useState("password");
   const [email, setEmail] = useState("");
-  // const [roles, setRoles] = useState("");
   const [checked, setChecked] = useState(false);
   const [errors, setErrors] = useState({});
 
@@ -75,37 +74,52 @@ function Signup() {
     return Object.keys(errors).length === 0;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (validateForm()) {
-      // const EmployeeId = empid;
-      // const response = await fetch("https://localhost:3000/api/signup", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     EmployeeId,
-      //     // name,
-      //     // email,
-      //     // password,
-      //     // roles,
-      //     // checked,
-      //   }),
-      // });
-      console.log("check", empid);
-      setEmpId("");
-      setName("");
-      setEmail("");
-      setPassword("");
-      // setRoles("");
-      setChecked(false);
-      setErrors({});
-      alert("Form submitted successfully");
-    } else {
-      alert("Form has error, Please correct it!");
+      const EmployeeId = empid;
+      const Username = name;
+      const EmailID = email;
+      const Password = password;
+      try {
+        const response = await fetch("http://localhost:3000/api/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            EmployeeId,
+            Username,
+            EmailID,
+            Password,
+          }),
+        });
+        const data = await response.json();
+
+        if (response.ok) {
+          setEmpId("");
+          setName("");
+          setEmail("");
+          setPassword("");
+          setChecked(false);
+          setErrors({});
+          console.log("signup success", data);
+          alert("Form submitted successfully");
+        } else {
+          // Handle errors if the server returns an error status
+          console.log(
+            "Form submission failed. Please try again later.",
+            data.error
+          );
+        }
+      } catch (error) {
+        // Handle network errors or other exceptions
+        console.log(
+          "An unexpected error occurred. Please try again later.",
+          error
+        );
+      }
     }
   };
-
   const togglePassword = () => {
     if (passwordType === "password") {
       setPasswordType("text");
