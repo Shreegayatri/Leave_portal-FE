@@ -1,11 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
 
 button,
+select,
+input,
 body {
   font-family: "Raleway", sans-serif;
 }
 
 .main_Container {
+  height: 98vh;
   width: 100%;
   display: flex;
   flex-direction: row !important;
@@ -14,7 +17,6 @@ body {
 }
 .Left_half {
   width: 50%;
-  height: 98vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,7 +54,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .Login_container {
   margin-bottom: 30px;
   font-size: 40px;
@@ -73,8 +74,7 @@ body {
   margin: auto;
 }
 button,
-input,
-select {
+input {
   cursor: pointer;
   border: none;
   background-color: transparent;
@@ -89,7 +89,6 @@ select {
   background: #fff;
 }
 .logn_cont {
-  /* padding:10px; */
   font-weight: 400;
   font-size: 16px;
   font-style: normal;
@@ -120,7 +119,6 @@ select {
 }
 .out_cont {
   margin-top: 20px;
-  /* margin-top: 20px; */
   display: flex;
   flex-direction: column;
 }
@@ -128,7 +126,6 @@ select {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ddd;
-  /* box-shadow: 0 4px 2px -1px rgba(163, 161, 161, 0.2); */
 }
 .check_container {
   display: flex;
@@ -153,12 +150,11 @@ select {
   padding: 10px;
   border-radius: 6px;
   margin-top: 20px;
-  /* font-weight: 600; */
 }
 
 .Right_half {
   width: 50%;
-  height: 100vh;
+  height: 102vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -184,4 +180,11 @@ h1 {
   position: relative;
   right: 7px;
   bottom: 3px;
+}
+.eye_img_contLogin {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 3px;
+  bottom: 5px;
 }

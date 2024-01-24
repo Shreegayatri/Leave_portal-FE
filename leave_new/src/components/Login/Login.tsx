@@ -85,29 +85,28 @@ function Login() {
                 Forget password
               </a>
             </div>
-            <div className="password_cont">
-              <input
-                className="input_container"
-                type={passwordType}
-                placeholder="Password"
-                value={passwordInput}
-                onChange={(e) => {
-                  setPasswordInput(e.target.value);
-                }}
-              />
-              <button className="pass_icon_login" onClick={togglePassword}>
-                {passwordType == "password" ? (
-                  <img className="eye_img_cont" src={eyeOff} alt="eye" />
-                ) : (
-                  <img className="eye_img_cont" src={eyeOn} alt="eye" />
-                )}
-              </button>
-              {errors.passwordInput ? (
-                <p className="error_msg">{errors.passwordInput}</p>
+
+            <input
+              className="input_container"
+              type={passwordType}
+              placeholder="Password"
+              value={passwordInput}
+              onChange={(e) => {
+                setPasswordInput(e.target.value);
+              }}
+            />
+            <button className="pass_icon_login" onClick={togglePassword}>
+              {passwordType == "password" ? (
+                <img className="eye_img_contLogin" src={eyeOff} alt="eye" />
               ) : (
-                " "
+                <img className="eye_img_contLogin" src={eyeOn} alt="eye" />
               )}
-            </div>
+            </button>
+            {errors.passwordInput ? (
+              <p className="error_msg">{errors.passwordInput}</p>
+            ) : (
+              " "
+            )}
           </div>
 
           <div className="out_cont">

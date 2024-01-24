@@ -52,9 +52,7 @@
   font-size: 40px;
   font-weight: 500;
 }
-.add_cont {
-  font-size: 16px;
-}
+
 .image_logo {
   margin-left: -32px;
   margin-bottom: 30px;
@@ -72,23 +70,10 @@
   margin: auto;
 }
 button,
-input,
-select {
+input {
   cursor: pointer;
   border: none;
   background-color: transparent;
-}
-
-.logn_cont {
-  font-weight: 400;
-  font-size: 16px;
-  font-style: normal;
-  color: #333333;
-}
-.google_container {
-  margin-right: 20px;
-  width: 25px;
-  height: 25px;
 }
 .label_cont {
   margin-bottom: 20px;
@@ -101,14 +86,6 @@ select {
   font-family: "Raleway", sans-serif;
   font-weight: 600;
 }
-
-.pass_cont {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .out_cont {
   margin-top: 20px;
   display: flex;
@@ -119,12 +96,6 @@ select {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid gray;
-}
-.check_container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 319px;
 }
 .check_design {
   width: 15px;
@@ -150,7 +121,7 @@ select {
 }
 .Right_halfsignup {
   width: 50%;
-  height: 100vh;
+  height: 102vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -165,7 +136,6 @@ select {
   align-items: center;
   margin: auto;
 }
-
 p,
 label,
 h1 {
@@ -176,24 +146,16 @@ h1 {
   color: red;
   font-size: 12px;
   margin-top: 10px;
-  /* font-weight: 600; */
-}
-.sucess_msg {
-  color: green;
-  font-size: 15px;
 }
 .pass_icon_cont {
   position: relative;
   right: 0px;
   bottom: 15px;
 }
-.eye_img_cont{
+.eye_img_cont {
   position: absolute;
-  width:20px;
-  height:20px;
+  width: 20px;
+  height: 20px;
   right: 20px;
   bottom: -7px;
-}
-.password_cont{
-  position:relative;
 }
